@@ -14,6 +14,7 @@ MAINTAINER Brent Salisbury <brent.salisbury@gmail.com>
 # install binary and remove cache
 RUN apt-get update \
     && apt-get install -y netperf \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # entrypoint allows you to pass your arguments to the container at runtime

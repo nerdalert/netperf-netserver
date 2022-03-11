@@ -6,6 +6,8 @@ Container images for Netperf and Netserver for Docker/Podman or any other contai
 
 ```
 $ docker run  -itd --rm --name=netserver -p 12865:12865 networkstatic/netserver -D
+# or use podman and/or quay.io
+$ podman run  -itd --rm --name=netserver -p 12865:12865 quay.io/networkstatic/netserver -D
 ```
 
 - Get the IP address of the instance you just started:
@@ -17,13 +19,13 @@ $ docker inspect --format "{{ .NetworkSettings.IPAddress }}" netserver
 - Run client tests against the server using netperf with:
 
 ```
-# docker run  -it --rm networkstatic/netperf -H <INSERT_NETSERVER_IP>
+# docker run  -it --rm quay.io/networkstatic/netserver -H <INSERT_NETSERVER_IP>
 ```
 
 - Example output between two containers on the same host:
 
 ```
-$ docker run  -it --rm netperf -H 172.17.0.2
+$ docker run  -it --rm quay.io/networkstatic/netserver -H 172.17.0.2
 MIGRATED TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to 172.17.0.2 () port 0 AF_INET : demo
 
 Recv   Send    Send
