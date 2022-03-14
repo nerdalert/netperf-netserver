@@ -19,13 +19,13 @@ $ docker inspect --format "{{ .NetworkSettings.IPAddress }}" netserver
 - Run client tests against the server using netperf with:
 
 ```
-# docker run  -it --rm quay.io/networkstatic/netserver -H <INSERT_NETSERVER_IP>
+# docker run  -it --rm quay.io/networkstatic/netperf -H <INSERT_NETSERVER_IP>
 ```
 
 - Example output between two containers on the same host:
 
 ```
-$ docker run  -it --rm quay.io/networkstatic/netserver -H 172.17.0.2
+$ docker run  -it --rm quay.io/networkstatic/netperf -H 172.17.0.2
 MIGRATED TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to 172.17.0.2 () port 0 AF_INET : demo
 
 Recv   Send    Send
