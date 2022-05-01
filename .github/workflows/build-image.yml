@@ -1,0 +1,23 @@
+name: Netperf/Netserver image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *'  # every day at midnight
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the netserver image
+      run: docker build . --file netserver/Dockerfile --tag my-image-name:$(date +%s)
+    - name: Build the netperf image
+      run: docker build . --file netperf/Dockerfile --tag my-image-name:$(date +%s)

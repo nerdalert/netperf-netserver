@@ -1,5 +1,7 @@
 # netperf-netserver
 
+[![Netperf/Netserver image CI](https://github.com/nerdalert/netperf-netserver/actions/workflows/build-image.yml/badge.svg)](https://github.com/nerdalert/netperf-netserver/actions/workflows/build-image.yml)
+
 Container images for Netperf and Netserver for Docker/Podman or any other container runtime.
 
 - Exampe usage running netserver as a daemon with the -D option (example is on the same host using the private address of the container e.g. 172.17.0.x):
